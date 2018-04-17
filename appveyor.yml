@@ -1,0 +1,10 @@
+version: '{build}'
+configuration:
+  - Debug
+  - Release
+build_script:
+  - echo "Building for %CONFIGURATION%"
+  - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj /p:Configuration=%CONFIGURATION%
+test_script:
+  - ps: if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
+  - cmd: dotnet test src/ReportGenerator.Core.Test/ReportGenerator.Core.Test.csproj
