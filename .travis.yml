@@ -7,3 +7,4 @@ sudo: false
 script:
   - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj
   - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj /p:Configuration=Release
+  - dotnet test src/ReportGenerator.Core.Test/ReportGenerator.Core.Test.csproj
