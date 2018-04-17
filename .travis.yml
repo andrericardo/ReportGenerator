@@ -1,9 +1,10 @@
 language: csharp
 mono: none
 dotnet: 2.1.104
-os: linux
-dist: trusty
-sudo: false
+- os: linux
+  dist: trusty
+  sudo: false
+- os: osx
 script:
   - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj
   - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj /p:Configuration=Release
