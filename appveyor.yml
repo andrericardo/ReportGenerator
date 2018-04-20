@@ -10,4 +10,9 @@ build_script:
   - echo "Building for %CONFIGURATION%"
   - dotnet build src/ReportGenerator.Console.NetCore/ReportGenerator.Console.NetCore.csproj /p:Configuration=%CONFIGURATION%
 test_script:
-  - dotnet test src/ReportGenerator.Core.Test/ReportGenerator.Core.Test.csproj
+  - cd src
+  - cmd: .\build.bat
+  - sh: msbuild Testprojects/CSharp/Project/Test_CSharp.csproj /t:Restore /v:m
+  - sh: msbuild build.proj /t:Restore /v:m
+  - sh: msbuild build.proj /v:m
+  - sh: dotnet test ReportGenerator.Core.Test/ReportGenerator.Core.Test.csproj
